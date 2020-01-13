@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Alert, Button } from 'react-native';
 import Constants from 'expo-constants';
 
+
 //Mis Components
 import Row from './src/components/Row.js';
+import Input from './src/components/Input.js';
+import Label from './src/components/Label.js';
 
 class App extends Component {
   constructor() {
@@ -16,23 +19,24 @@ class App extends Component {
     return (
       <View style={ styles.container }>
         <View style={ styles.row }>
-        
+
           <View style={ styles.col }>
             <View style={ styles.group }>
-              <TextInput style={ styles.input } />
+              <Label text="Ingresa un valor" />
+              <Input />
             </View>
           </View>
 
           <View style={ styles.col }>
             <View style={ styles.group }>
-              <TextInput style={ styles.input } />
+              <Label text="Ingresa un valor" />
+              <Input />
             </View>
           </View>
         </View>
 
         <View style={ styles.group }>
-          <TextInput style={styles.input} placeholder="Ingresa un valor" value={this.state.value}
-                     onChangeText={ text => { this.setState({ value: text }); } } />
+          <Input placeholder="Ingresa un valor" />
         </View>
 
         <View style={ styles.group }>
@@ -60,12 +64,6 @@ const styles = StyleSheet.create({
   },
   group: {
     margin: 5
-  },
-  input: {
-    borderColor: 'skyblue',
-    borderWidth: 1,
-    padding: 4,
-    borderRadius: 2
   },
   button: {
   }
