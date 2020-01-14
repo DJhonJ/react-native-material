@@ -1,72 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Alert, Button } from 'react-native';
 import Constants from 'expo-constants';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 
+import Home from './src/components/screen/Home.js';
 
-//Mis Components
-import Row from './src/components/Row.js';
-import Input from './src/components/Input.js';
-import Label from './src/components/Label.js';
-
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = { value : '' }
-  }
-
-  render() {
-    return (
-      <View style={ styles.container }>
-        <View style={ styles.row }>
-
-          <View style={ styles.col }>
-            <View style={ styles.group }>
-              <Label text="Ingresa un valor" />
-              <Input />
-            </View>
-          </View>
-
-          <View style={ styles.col }>
-            <View style={ styles.group }>
-              <Label text="Ingresa un valor" />
-              <Input />
-            </View>
-          </View>
-        </View>
-
-        <View style={ styles.group }>
-          <Input placeholder="Ingresa un valor" />
-        </View>
-
-        <View style={ styles.group }>
-          <Button title="show value" onPress={ () => { alert(this.state.value); } } />
-        </View>
-
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    margin: 10,
-    marginTop: Constants.statusBarHeight,
-  },
-  row: {
-    flex: 0,
-    flexDirection: 'row',
-  },
-  col: {
-    flex: 1
-  },
-  group: {
-    margin: 5
-  },
-  button: {
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: Home
   }
 });
 
-export default App;
+export default createAppContainer(AppNavigator);
