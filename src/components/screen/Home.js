@@ -6,41 +6,41 @@ import Constants from 'expo-constants';
 import Row from '../Row.js';
 import Input from '../Input.js';
 import Label from '../Label.js';
+import Col from '../Col.js';
+import Group from '../Group.js';
 
 class Home extends Component {
   constructor() {
     super();
-
     this.state = { value : '' }
   }
 
   render() {
     return (
       <View style={ styles.container }>
-        <View style={ styles.row }>
-
-          <View style={ styles.col }>
-            <View style={ styles.group }>
+        <Row>
+          <Col>
+            <Group>
               <Label text="Ingresa un valor" />
               <Input />
-            </View>
-          </View>
+            </Group>
+          </Col>
 
-          <View style={ styles.col }>
-            <View style={ styles.group }>
+          <Col>
+            <Group>
               <Label text="Ingresa un valor" />
               <Input />
-            </View>
-          </View>
-        </View>
+            </Group>
+          </Col>
+        </Row>
 
-        <View style={ styles.group }>
+        <Group>
           <Input placeholder="Ingresa un valor" />
-        </View>
+        </Group>
 
-        <View style={ styles.group }>
+        <Group>
           <Button title="show value" onPress={ () => { alert(this.state.value); } } />
-        </View>
+        </Group>
 
       </View>
     );
@@ -53,18 +53,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     margin: 10,
     marginTop: Constants.statusBarHeight,
-  },
-  row: {
-    flex: 0,
-    flexDirection: 'row',
-  },
-  col: {
-    flex: 1
-  },
-  group: {
-    margin: 5
-  },
-  button: {
   }
 });
 

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-class Row extends Component {
+class Group extends Component {
   constructor(props){
   }
   render(){
     return (
-      <View style={ styles.row }>
+      <View style={ styles.group }>
        { this.props.schildren }
       </View>
     );
@@ -14,10 +14,9 @@ class Row extends Component {
 }
 
 const styles = StyleSheet.create({
-  row: {
-    flex: 0,
-    flexDirection: 'row'
+  group: {
+    margin: 5
   }
 });
 
-export default Row;
+export default Group;
